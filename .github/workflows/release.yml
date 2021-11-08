@@ -4,6 +4,10 @@ on:
     branches:
       - main
       - next
+  workflow_run:
+    workflows: ["Test"]
+    types:
+      - completed
 jobs:
 
   release:
@@ -56,4 +60,4 @@ jobs:
       - name: Run Semantic Release
         env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release --debug
+        run: npx semantic-release

@@ -1,0 +1,15 @@
+branches:
+  - main
+  - next
+preset: angular
+plugins:
+  - path: "@semantic-release/commit-analyzer"
+  - path: "@semantic-release/exec"
+    publishCmd: "sh release_package.sh ${nextRelease.version}"
+  - path: "@semantic-release/changelog"
+    changelogFile: "CHANGELOG.md"
+  - path: "@semantic-release/release-notes-generator"
+  - path: "@semantic-release/github"
+    assets:
+      - path: "dist/sample_package-0.1.0-py3-none-any.whl"
+        label: "Python Package"

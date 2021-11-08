@@ -4,6 +4,10 @@ on:
     branches:
       - main
       - next
+  workflow_run:
+    workflows: ["Test"]
+    types:
+      - completed
 jobs:
 
   release:

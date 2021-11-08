@@ -12,4 +12,6 @@ plugins:
   - path: "@semantic-release/github"
     assets:
       - path: "dist/*.whl"
-        label: "Python Package"
+        label: "sample-package-${nextRelease.version}.whl"
+      - path: "dist/*.tar.gz"
+        label: "sample-package-${nextRelease.version}.tar.gz"

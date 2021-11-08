@@ -5,7 +5,7 @@ preset: angular
 plugins:
   - path: "@semantic-release/commit-analyzer"
   - path: "@semantic-release/exec"
-    publishCmd: "sh release_package.sh ${nextRelease.version}"
+    prepareCmd: "sh release_package.sh ${nextRelease.version}"
   - path: "@semantic-release/changelog"
     changelogFile: "CHANGELOG.md"
   - path: "@semantic-release/release-notes-generator"

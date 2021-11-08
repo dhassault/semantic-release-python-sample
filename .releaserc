@@ -11,5 +11,5 @@ plugins:
   - path: "@semantic-release/release-notes-generator"
   - path: "@semantic-release/github"
     assets:
-      - path: "dist/sample_package-${nextRelease.version}-py3-none-any.whl"
+      - path: "dist/*.whl"
         label: "Python Package"

@@ -31,8 +31,8 @@ envclean: clean
 	@rm -rf .cache
 
 format:
-	@poetry run isort . --profile black
-	@poetry run black .
+	@poetry run isort ./
+	@poetry run black ./
 
 # requirements.txt is only used for GitHub vulnerability alert.
 # GitHub does not support poetry yet, so this file is needed.
@@ -48,13 +48,12 @@ lint:
 	@poetry run pylint-fail-under --fail_under 9.0 -d C0116,W0621,W0212,W0611,R0801 $(TEST_DIR)
 
 check_types:
-	@poetry run mypy -p $$(echo $(API_DIR) | sed 's/^\///;s/\// /g')
 	@poetry run mypy -p $$(echo $(PACKAGE_DIR) | sed 's/^\///;s/\// /g')
+	@poetry run mypy -p $$(echo $(TEST_DIR) | sed 's/^\///;s/\// /g')
 	
 
 test:
-	DATABASE_URL=postgresql+psycopg2://postgres:postgres@localhost:5432/test_postgres \
-	$(PYTHON_INTERPRETER) poetry run pytest  \
+	@poetry run pytest  \
 	$(TEST_DIR) --cov=$(PACKAGE_DIR) --cov-report html:./htmlcov \
 	--cov-fail-under 90
 	@poetry run coverage-badge -fo $(PATH_COV_BADGE)

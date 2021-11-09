@@ -36,5 +36,3 @@ This is a sample repository demonstrating how to setup automatic semantic releas
 ## Contact
 
 Yann Le Guilly - [@Yannlg_](https://twitter.com/Yannlg_) - https://yannlg.tech
-
-Blg article: [How to automate your python package release on Github](https://yannlg.tech)
